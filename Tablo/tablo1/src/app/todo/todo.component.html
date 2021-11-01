@@ -1,0 +1,52 @@
+
+<div class="baslik">
+    <h3>{{getName()}}' nın listesi</h3>
+
+
+<div class="ara">
+ <table width="960">
+     <tr>
+        <td>
+            <input
+            #yazi type="text"  class="form-control"
+            (keyup.enter)="addItem(yazi.value); yazi.value=''" 
+            >
+        </td>
+
+        <td>
+            <button class="btn btn-outline-primary" (click)="addItem(yazi.value); yazi.value='' ">Add</button>   
+        </td>
+    </tr>
+</table>
+</div>
+
+   
+ 
+    <div>
+        <input type="checkbox" [(ngModel)]="displayAll" class="tik" name="hep" id="displayAll">
+        <label for="displayAll" class="yaz">Hepsini göster</label>
+    </div>
+
+    {{displayAll}}
+
+    <table class="table" >
+        <thead>
+            
+            <tr>
+                <th></th>
+                <th>description</th>
+                <th>action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let item of getItems(); let i = index;">
+                <td>{{i+1}}</td>
+                <td>{{item.aciklama}}</td>
+                <td>{{item.yap}}</td>
+                <td>
+                    <input type="checkbox" [(ngModel)]="item.yap" name="" id="">
+                </td>
+            </tr>
+            </tbody>
+    </table>
+</div>
